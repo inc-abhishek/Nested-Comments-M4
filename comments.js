@@ -1,6 +1,7 @@
 const commentSection = document.getElementById('commentSection');
 const newComment = document.getElementById('newComment');
 const charCount = document.getElementById('charCount');
+let userCounter = 1;  // Counter for user labels
 
 newComment.addEventListener('input', () => {
     charCount.textContent = `${250 - newComment.value.length} characters remaining`;
@@ -13,9 +14,13 @@ function addComment(parentId = null) {
     const commentId = Date.now(); 
     const comment = document.createElement('div');
     comment.className = "p-4 bg-gray-200 rounded-lg";
+    
+    // Assign "User 1", "User 2", etc.
+    const userLabel = parentId ? `Reply by User` : `User ${userCounter++}`;
+    
     comment.innerHTML = `
         <div class="flex justify-between items-center">
-            <span class="font-bold">User</span>
+            <span class="font-bold">${userLabel}</span>
             <button onclick="toggleReplies(${commentId})" class="text-sm text-blue-500">Toggle Replies</button>
         </div>
         <p>${commentText}</p>
@@ -59,14 +64,14 @@ function toggleReplies(commentId) {
     }
 }
 
-
+// Reset button functionality
 const resetButton = document.getElementById('resetButton');
 
 function resetComments() {
     const confirmation = confirm("Are you sure you want to delete all comments?");
-    
     if (confirmation) { 
-        commentSection.innerHTML = ''; 
+        commentSection.innerHTML = '';
+        userCounter = 1;  // Reset the user counter as well
         alert("All comments have been deleted.");
     }
 }
