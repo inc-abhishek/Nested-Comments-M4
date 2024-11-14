@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nested Comments</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-gray-100">
+     
+    <nav class="bg-white shadow-md p-4 flex justify-between items-center">
+        <button id="resetButton" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">Reset</button>
+        <div class="flex-1"></div>
+        <h1 class="text-2xl font-bold text-center">Nested Comments</h1>
+        <div class="flex-1 flex justify-end space-x-4">
+            <a href="https://github.com/inc-abhishek" target="_blank" class="bg-gray-800 text-white px-4 py-2 rounded hover:bg-gray-700">GitHub</a>
+            <a href="https://linkedin.com/in/inc-abhishek" target="_blank" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-500">LinkedIn</a>
+        </div>
+        
+    </nav>
+    <div class="container mx-auto p-6">
+        <div id="commentSection" class="space-y-4"></div>
+    
+        <div class="mt-4">
+            <textarea id="newComment" maxlength="250" placeholder="Add a new comment..." class="w-full p-2 border rounded mb-2"></textarea>
+            <div class="flex justify-between items-center">
+                <span id="charCount" class="text-sm text-gray-500">250 characters remaining</span>
+                <button onclick="addComment()" class="bg-blue-500 text-white px-4 py-1 rounded">Add Comment</button>
+            </div>
+        </div>
+    </div>
+
+    <script src="comments.js"></script>
+</body>
+</html>
