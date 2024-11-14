@@ -1,7 +1,7 @@
 const commentSection = document.getElementById('commentSection');
 const newComment = document.getElementById('newComment');
 const charCount = document.getElementById('charCount');
-let userCounter = 1;  // Counter for user labels
+let userCounter = 1;  
 
 newComment.addEventListener('input', () => {
     charCount.textContent = `${250 - newComment.value.length} characters remaining`;
@@ -15,7 +15,7 @@ function addComment(parentId = null) {
     const comment = document.createElement('div');
     comment.className = "p-4 bg-gray-200 rounded-lg";
     
-    // Assign "User 1", "User 2", etc.
+   
     const userLabel = parentId ? `Reply by User` : `User ${userCounter++}`;
     
     comment.innerHTML = `
@@ -71,7 +71,7 @@ function resetComments() {
     const confirmation = confirm("Are you sure you want to delete all comments?");
     if (confirmation) { 
         commentSection.innerHTML = '';
-        userCounter = 1;  // Reset the user counter as well
+        userCounter = 1;  
         alert("All comments have been deleted.");
     }
 }
